@@ -1,12 +1,17 @@
 <?php
 $current_year = date("Y");
+$prefix = isset($attributes['prefix']) ? wp_kses_post($attributes['prefix']) : '';
+$suffix = isset($attributes['suffix']) ? wp_kses_post($attributes['suffix']) : '';
 
-if (! empty($attributes['startingYear']) && ! empty($attributes['showStartingYear'])) {
-    $display_date = $attributes['startingYear'] . '–' . $current_year;
-} else {
-    $display_date = $current_year;
-}
+$parts = array_filter([
+    $prefix,
+    '© ' . $current_year,
+    $suffix
+], fn($v) => $v !== '');
+
+$output = implode(' ', $parts);
 ?>
+
 <p <?php echo get_block_wrapper_attributes(); ?>>
-    © <?php echo esc_html($display_date); ?>
+    <?php echo $output; ?>
 </p>

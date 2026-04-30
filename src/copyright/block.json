@@ -20,5 +20,12 @@
 	},
 	"textdomain": "copyright",
 	"editorScript": "file:./index.js",
-	"render": "file:./render.php"
+	"render": "file:./render.php",
+	"attributes": {
+		"prefix": { "type": "string" },
+		"suffix": { "type": "string" },
+		"startingYear": { "type": "string" },
+		"showStartingYear": { "type": "boolean", "default": false }
+	}
+	
 }

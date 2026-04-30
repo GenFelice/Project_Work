@@ -25,6 +25,21 @@ return array(
 		),
 		'textdomain' => 'copyright',
 		'editorScript' => 'file:./index.js',
-		'render' => 'file:./render.php'
+		'render' => 'file:./render.php',
+		'attributes' => array(
+			'prefix' => array(
+				'type' => 'string'
+			),
+			'suffix' => array(
+				'type' => 'string'
+			),
+			'startingYear' => array(
+				'type' => 'string'
+			),
+			'showStartingYear' => array(
+				'type' => 'boolean',
+				'default' => false
+			)
+		)
 	)
 );

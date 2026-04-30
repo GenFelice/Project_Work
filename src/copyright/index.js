@@ -1,8 +1,3 @@
-/**
- * Registers a new block provided a unique name and an object defining its behavior.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
- */
 import { registerBlockType } from '@wordpress/blocks';
 import metadata from './block.json';
 import Edit from './edit';
@@ -20,13 +15,27 @@ const calendarIcon = (
     </svg>
 );
 
+/**
+ * Below is the register of a new block provided a unique name and an object defining its behavior.
+  */
 registerBlockType("create-block/copyright", {
     icon: calendarIcon,
     attributes: {
-        content: {
+        prefix: {
             type: 'string',
-            source: 'html',
-            selector: 'h3',
+            default: '',
+        },
+        suffix: {
+            type: 'string',
+            default: '',
+        },
+        startingYear: {
+            type: 'string',
+            default: '',
+        },
+        showStartingYear: {
+            type: 'boolean',
+            default: false,
         },
     },
     edit: Edit,
@@ -34,22 +43,4 @@ registerBlockType("create-block/copyright", {
 });
 
 
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * All files containing `style` keyword are bundled together. The code used
- * gets applied both to the front of your site and to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
 
-
-/**
- * Internal dependencies
- */
-
-
-/**
- * Every block starts by registering a new block type definition.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
- */
